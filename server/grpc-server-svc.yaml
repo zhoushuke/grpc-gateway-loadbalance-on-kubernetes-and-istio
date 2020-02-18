@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    run: grpc-server
+  name: progress-service-svc
+  namespace: default
+spec:
+  ports:
+  - name: grpc
+    port: 50051
+    protocol: TCP
+    targetPort: 50051
+  selector:
+    run: grpc-server
+  type: ClusterIP

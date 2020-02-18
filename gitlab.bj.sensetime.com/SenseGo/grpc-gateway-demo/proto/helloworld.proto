@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package helloworld;
+
+import "google/api/annotations.proto";
+
+service Hello {
+    rpc Hi (HiRequest) returns (HiResponse) {
+            option (google.api.http) = {
+    			post: "/hello/hi"
+    			body: "*"
+    		};
+    }
+}
+
+message HiRequest {
+    string toWho = 1;
+    string message = 2;
+    string clientip =3;
+}
+
+message HiResponse {
+    string fromWho = 1;
+    string message = 2;
+    string serverip = 3;
+}
