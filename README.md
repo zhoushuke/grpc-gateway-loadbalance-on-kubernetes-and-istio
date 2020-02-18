@@ -1,5 +1,6 @@
 # grpc-loadbalance-on-kubernetes-and-istio
 这个go demo用来测试grpc-gateway在kubernetes-istio这个platform下的负载均衡效果.
+另一个在kubernetes环境中测试grpc-gateway实现负载均衡的效果的办法，参考[这里](https://izsk.me/2020/01/17/grpc-service-on-kubernetes/)
 
 ## 环境依赖:
 这部分需要什么大家就go get吧
@@ -49,3 +50,6 @@ kubectl apply -f grpc-client.yaml
 
 ### 服务端从五个缩容至一个
 客户端也能实时地发现服务的变动, 如上图下半部分所示
+
+## 结论:
+从测试的结论可以看出, **在istio的流量管理的作用下, grpc服务不需要做额外的操作即可实现负载均衡效果, 原因就是因为istio的xds是动态模型, 得到cluster后，根据cluster 实时地查询endpoint列表，然后再根据istio中配置的负载均衡配置(默认是roundbalance)直接路由到endpoint，而不需要经过kubernetes中的service(kube-proxy)机制**
