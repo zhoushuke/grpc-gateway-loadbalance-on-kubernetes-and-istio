@@ -6,6 +6,11 @@
 这部分需要什么大家就go get吧
 
 ## 部署流程：
+
+### 可直接下载二进制包
+[progress-client.tar.gz](https://github.com/zhoushuke/grpc-gateway-loadbalance-on-kubernetes-and-istio/files/4218196/progress-client.tar.gz)
+[process-service.tar.gz](https://github.com/zhoushuke/grpc-gateway-loadbalance-on-kubernetes-and-istio/files/4218188/process-service.tar.gz)
+
 ### proto编译
 包括grpc-gateway, 代码中已编译好上传了.
 
