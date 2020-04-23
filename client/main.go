@@ -25,11 +25,11 @@ func resolverconn() *grpc.ClientConn {
 	//	fmt.Println("errrr", err)
 	//	return nil
 	//}
-	resolver.Register(kuberesolver.NewBuilder(client, "kubernetes"))
+	// resolver.Register(kuberesolver.NewBuilder(client, "kubernetes"))
 
 	//fmt.Println("=============")
-	cc, err := grpc.Dial("kubernetes:///progress-service-svc:50051", grpc.WithInsecure())
-	//cc, err := grpc.Dial("progress-service-svc:50051", grpc.WithInsecure())
+	// cc, err := grpc.Dial("kubernetes:///progress-service-svc:50051", grpc.WithInsecure())
+	cc, err := grpc.Dial("progress-service-svc:50051", grpc.WithInsecure())
 	if err != nil {
 		fmt.Printf("did not connect: %v \n", err)
 		return nil
